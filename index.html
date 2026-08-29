@@ -44,6 +44,10 @@
       scroll-behavior: smooth;
     }
 
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       background: var(--paper);
@@ -53,6 +57,7 @@
       line-height: 1.8;
       -webkit-font-smoothing: antialiased;
       position: relative;
+      overflow-x: hidden;
     }
 
     body::before {
@@ -325,6 +330,19 @@
       overflow: hidden;
       position: relative;
       background: linear-gradient(180deg, rgba(15, 26, 48, 0.03) 0%, rgba(244, 242, 236, 0) 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -160px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-glow) 0%, rgba(212, 175, 55, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .hero-inner {
@@ -644,6 +662,27 @@
       transform: scale(1.05);
     }
 
+    .m-initial {
+      display: none;
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-weight: 600;
+      font-size: 42px;
+      color: var(--gold);
+      background: linear-gradient(135deg, var(--paper-2) 0%, var(--paper) 100%);
+    }
+
+    .m-plate.no-img {
+      background: linear-gradient(135deg, var(--paper-2) 0%, var(--paper) 100%);
+    }
+
+    .m-plate.no-img .m-initial {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
     .m-idx {
       position: absolute;
       top: 10px;
@@ -762,6 +801,20 @@
       object-fit: cover;
       background: var(--paper-2);
       border-bottom: 3px solid var(--gold);
+      transition: transform .5s;
+      display: block;
+    }
+
+    .p-card:hover .p-img {
+      transform: scale(1.04);
+    }
+
+    .p-card {
+      isolation: isolate;
+    }
+
+    .p-card>.p-img {
+      z-index: 0;
     }
 
     .p-content {
@@ -1025,6 +1078,30 @@
       .nav-toggle {
         display: block;
       }
+
+      section.block {
+        padding: 44px 0;
+      }
+
+      .hero {
+        padding: 40px 0 28px;
+      }
+
+      .member-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 14px;
+      }
+
+      .p-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .advisor-plate {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1263,7 +1340,8 @@
       card.innerHTML = `
       <div class="m-plate">
         <span class="m-idx">NO. ${idx}</span>
-        <img src="${imgSrc}" alt="${m.name}" loading="lazy">
+        <img src="${imgSrc}" alt="${m.name}" loading="lazy" onerror="this.parentElement.classList.add('no-img'); this.remove();">
+        <span class="m-initial">${m.nick ? m.nick.charAt(0) : m.name.charAt(0)}</span>
       </div>
       <div class="m-body">
         <div class="m-role">${m.role}</div>
@@ -1386,7 +1464,7 @@
         const card = document.createElement("div");
         card.className = "p-card";
         card.innerHTML = `
-          <img src="${p.img}" alt="${p.title}" class="p-img" loading="lazy">
+          <img src="${p.img}" alt="${p.title}" class="p-img" loading="lazy" onerror="this.style.display='none';">
           <div class="p-content">
             <span class="p-date">${p.date}</span>
             <div class="p-title">${p.title}</div>
@@ -1464,11 +1542,19 @@
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
-      }, { threshold: .12 });
+      }, { threshold: 0.05, rootMargin: "0px 0px -5% 0px" });
       document.querySelectorAll(".reveal").forEach(el => io.observe(el));
     } else {
       document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-in"));
     }
+
+    // เผื่อกรณีเบราว์เซอร์บางรุ่นบนมือถือ (เช่น เว็บวิวในแอปแชท) ไม่ยิง IntersectionObserver
+    // ให้บังคับแสดงเนื้อหาทั้งหมดหลังโหลดหน้าเสร็จ กันปัญหาเนื้อหาที่ซ่อนอยู่ค้างไม่ขึ้น
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.querySelectorAll(".reveal:not(.is-in)").forEach(el => el.classList.add("is-in"));
+      }, 1200);
+    });
 
   </script>
 
