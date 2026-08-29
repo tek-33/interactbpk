@@ -471,6 +471,371 @@
       position: relative;
     }
 
+    /* Memory photo rope — clean layout, no overlap, full photos visible */
+    .photo-chain-wrap {
+      position: relative;
+      margin-top: 72px;
+      padding: 54px 0 72px;
+      border-top: 1px dashed var(--line-strong);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      isolation: isolate;
+    }
+
+    .photo-chain-kicker {
+      position: relative;
+      z-index: 10;
+      margin: 0 0 30px;
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .photo-chain-kicker::before,
+    .photo-chain-kicker::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .photo-chain {
+      position: relative;
+      width: min(100%, 900px);
+      padding: 68px 20px 82px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-areas:
+        "one two"
+        "three four";
+      column-gap: clamp(70px, 11vw, 150px);
+      row-gap: 92px;
+      align-items: start;
+      box-sizing: border-box;
+    }
+
+    .photo-chain .chain-label {
+      position: absolute;
+      z-index: 12;
+      user-select: none;
+      pointer-events: none;
+      font-family: 'IBM Plex Mono', 'Prompt', monospace;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 1;
+      text-shadow: 0 2px 7px rgba(0, 0, 0, .12);
+    }
+
+    /* สีชมพูเฉพาะ start / end */
+    .photo-chain .chain-label.lbl-start,
+    .photo-chain .chain-label.lbl-end {
+      color: #e96b9a;
+    }
+
+    .photo-chain .chain-label.lbl-start {
+      top: 16px;
+      left: 12px;
+      transform: rotate(-7deg);
+    }
+
+    .photo-chain .chain-label.lbl-end {
+      right: 12px;
+      bottom: 18px;
+      transform: rotate(-5deg);
+    }
+
+    /* เชือกอยู่ด้านหลังรูป ไม่ดัน layout และไม่ทำให้เนื้อหาด้านล่างซ้อน */
+    .photo-chain svg.chain-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .rope-shadow {
+      fill: none;
+      stroke: rgba(42, 29, 18, .22);
+      stroke-width: 2.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transform: translate(1.5px, 2px);
+    }
+
+    .rope-main {
+      fill: none;
+      stroke: #956a42;
+      stroke-width: 2.45;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .rope-highlight {
+      fill: none;
+      stroke: rgba(239, 213, 176, .9);
+      stroke-width: .72;
+      stroke-linecap: round;
+      stroke-dasharray: 1.4 2.7;
+    }
+
+    .rope-knot {
+      fill: #a87848;
+      stroke: #694622;
+      stroke-width: .45;
+    }
+
+    .chain-box {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      padding: 12px 12px 54px;
+      margin: 0;
+      border: 1px solid rgba(35, 25, 17, .13);
+      border-radius: 2px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .99), rgba(247, 243, 234, .99));
+      box-shadow: 0 4px 7px rgba(35, 25, 17, .13), 0 16px 28px rgba(35, 25, 17, .15);
+      cursor: zoom-in;
+      appearance: none;
+      -webkit-appearance: none;
+      font: inherit;
+      color: inherit;
+      transition: transform .3s cubic-bezier(.16, 1, .3, 1), box-shadow .3s ease;
+    }
+
+    .chain-box::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      width: 38px;
+      height: 15px;
+      transform: translateX(-50%) rotate(-2deg);
+      background: rgba(235, 218, 177, .82);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .13);
+      z-index: 7;
+    }
+
+    .chain-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: center;
+      border: 1px solid rgba(0, 0, 0, .08);
+      background: #eeeae2;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35);
+    }
+
+    .polaroid-caption {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 16px;
+      text-align: center;
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #55483d;
+      line-height: 1.2;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .cb-1 {
+      grid-area: one;
+      transform: rotate(-4deg);
+    }
+
+    .cb-2 {
+      grid-area: two;
+      transform: rotate(4deg);
+    }
+
+    .cb-3 {
+      grid-area: three;
+      transform: rotate(3deg);
+    }
+
+    .cb-4 {
+      grid-area: four;
+      transform: rotate(-4deg);
+    }
+
+    .chain-box:hover {
+      z-index: 20;
+      box-shadow: 0 8px 13px rgba(35, 25, 17, .17), 0 24px 42px rgba(35, 25, 17, .24);
+    }
+
+    .chain-box.cb-1:hover {
+      transform: rotate(-1deg) scale(1.035);
+    }
+
+    .chain-box.cb-2:hover {
+      transform: rotate(1deg) scale(1.035);
+    }
+
+    .chain-box.cb-3:hover {
+      transform: rotate(-1deg) scale(1.035);
+    }
+
+    .chain-box.cb-4:hover {
+      transform: rotate(1deg) scale(1.035);
+    }
+
+    .photo-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      box-sizing: border-box;
+      background: rgba(12, 17, 29, .90);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+
+    .photo-lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .photo-lightbox-card {
+      position: relative;
+      width: min(94vw, 1000px);
+      max-height: 92vh;
+      padding: 18px 18px 70px;
+      box-sizing: border-box;
+      background: #fff;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+      transform: scale(.96);
+      transition: transform .25s ease;
+    }
+
+    .photo-lightbox.active .photo-lightbox-card {
+      transform: scale(1);
+    }
+
+    .photo-lightbox img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      object-position: center;
+      background: #eee;
+    }
+
+    .photo-lightbox-caption {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      text-align: center;
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #4d4035;
+    }
+
+    .photo-lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: #e96b9a;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .25);
+      z-index: 5;
+    }
+
+    @media (max-width: 680px) {
+      .photo-chain {
+        width: 100%;
+        padding: 58px 8px 70px;
+        column-gap: 48px;
+        row-gap: 70px;
+      }
+
+      .chain-box {
+        padding: 8px 8px 46px;
+      }
+
+      .polaroid-caption {
+        left: 8px;
+        right: 8px;
+        bottom: 12px;
+        font-size: 12px;
+      }
+
+      .photo-chain .chain-label {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .photo-chain {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "one"
+          "two"
+          "three"
+          "four";
+        row-gap: 58px;
+        padding: 58px 28px 68px;
+      }
+
+      .chain-box {
+        width: 100%;
+        max-width: 360px;
+        justify-self: center;
+        padding: 7px 7px 42px;
+      }
+
+      .polaroid-caption {
+        font-size: 11px;
+        bottom: 10px;
+      }
+
+      .photo-chain .chain-label {
+        font-size: 21px;
+      }
+
+      .photo-chain .chain-label.lbl-start {
+        left: 6px;
+      }
+
+      .photo-chain .chain-label.lbl-end {
+        right: 6px;
+      }
+
+      .photo-lightbox {
+        padding: 14px;
+      }
+    }
+
     .about-grid {
       margin-top: 36px;
       display: grid;
@@ -1162,7 +1527,7 @@
       <div class="wrap hero-inner">
         <div class="hero-num" aria-hidden="true">09</div>
         <div class="kicker">Rotary Year 2025–2026 · ปีบริหาร 2568–2569</div>
-        <h1>ทำเนียบคณะกรรมการบริหารและผลการดำเนินโครงการ<br>สโมสรอินเทอร์แรคท์โรงเรียนบางปะกอกวิทยาคม</h1>
+        <h1>ทำเนียบคณะกรรมการบริหาร<br>และผลการดำเนินโครงการ<br>สโมสรอินเทอร์แรคท์โรงเรียนบางปะกอกวิทยาคม</h1>
         <div class="sub">IN SPONSORSHIP OF ROTARY CLUB OF RAT BURANA · DISTRICT 3350, ROTARY INTERNATIONAL</div>
         <p class="lede">ทำเนียบรายนามคณะกรรมการบริหาร รุ่นที่ 9
           พร้อมสรุปผลการดำเนินโครงการและกิจกรรมบำเพ็ญประโยชน์ประจำปีบริหาร 2568–2569
@@ -1252,6 +1617,52 @@
         </div>
 
         <div class="member-grid" id="memberGrid"></div>
+
+        <div class="photo-chain-wrap reveal">
+          <div class="photo-chain-kicker"></div>
+          <div class="photo-chain" aria-label="ภาพความทรงจำตลอดปีบริหาร">
+            <span class="chain-label lbl-start">start</span>
+
+            <svg class="chain-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <!-- เชือกพาดตามจุดแขวนของ Polaroid ทั้ง 4 ใบ -->
+              <!-- เส้นทาง: start → รูป 1 → รูป 2 → รูป 4 → รูป 3 → end -->
+              <path class="rope-shadow"
+                d="M8 8 C14 8 19 9 25 12 C38 18 61 18 75 12 C82 10 88 13 90 18 C92 28 86 38 78 43 C75 46 75 52 75 58 C75 65 69 69 61 68 C48 66 37 61 25 58 C18 56 12 60 10 66" />
+              <path class="rope-main"
+                d="M8 8 C14 8 19 9 25 12 C38 18 61 18 75 12 C82 10 88 13 90 18 C92 28 86 38 78 43 C75 46 75 52 75 58 C75 65 69 69 61 68 C48 66 37 61 25 58 C18 56 12 60 10 66" />
+              <!-- เส้นใยเล็ก ๆ ให้ดูเป็นเชือกจริง -->
+              <path class="rope-highlight"
+                d="M8 8 C14 8 19 9 25 12 C38 18 61 18 75 12 C82 10 88 13 90 18 C92 28 86 38 78 43 C75 46 75 52 75 58 C75 65 69 69 61 68 C48 66 37 61 25 58 C18 56 12 60 10 66" />
+              <!-- จุดแขวนตรงกึ่งกลางด้านบนของรูป -->
+            </svg>
+
+            <button class="chain-box cb-1" type="button" data-photo="ALL1.JPG" data-caption="2025 - 2026"
+              aria-label="เปิดรูป 2025 - 2026">
+              <img src="ALL2.JPG" alt="ภาพความทรงจำ 2025 - 2026" loading="lazy">
+              <span class="polaroid-caption">2025 - 2026</span>
+            </button>
+
+            <button class="chain-box cb-2" type="button" data-photo="ALL2.JPG" data-caption="2025 - 2026"
+              aria-label="เปิดรูป 2025 - 2026">
+              <img src="ALL3.JPG" alt="ภาพความทรงจำ 2025 - 2026" loading="lazy">
+              <span class="polaroid-caption">2025 - 2026</span>
+            </button>
+
+            <button class="chain-box cb-3" type="button" data-photo="ALL3.JPG" data-caption="2026 - 2027"
+              aria-label="เปิดรูป 2026 - 2027">
+              <img src="ALL1.JPG" alt="ภาพความทรงจำ 2026 - 2027" loading="lazy">
+              <span class="polaroid-caption">2026 - 2027</span>
+            </button>
+
+            <button class="chain-box cb-4" type="button" data-photo="ALL4.JPG" data-caption="2026 - 2027"
+              aria-label="เปิดรูป 2026 - 2027">
+              <img src="ALL4.JPG" alt="ภาพความทรงจำ 2026 - 2027" loading="lazy">
+              <span class="polaroid-caption">2026 - 2027</span>
+            </button>
+
+            <span class="chain-label lbl-end">end</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1273,6 +1684,16 @@
     </section>
 
   </main>
+
+
+  <!-- Photo lightbox for memory photos -->
+  <div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
+    <div class="photo-lightbox-card" role="dialog" aria-modal="true" aria-label="ดูรูปภาพ">
+      <button class="photo-lightbox-close" id="photoLightboxClose" type="button" aria-label="ปิด">×</button>
+      <img id="photoLightboxImage" src="" alt="">
+      <div class="photo-lightbox-caption" id="photoLightboxCaption"></div>
+    </div>
+  </div>
 
   <div class="modal-overlay" id="projectModal">
     <div class="modal-container">
@@ -1484,6 +1905,36 @@
     renderProjects(mainProjects, "mainProjectsGrid");
     renderProjects(joinedProjects, "joinedProjectsGrid");
 
+
+    // เปิดรูปความทรงจำแบบ Lightbox เมื่อคลิกรูปโพลารอยด์
+    const photoLightbox = document.getElementById("photoLightbox");
+    const photoLightboxImage = document.getElementById("photoLightboxImage");
+    const photoLightboxCaption = document.getElementById("photoLightboxCaption");
+    const photoLightboxClose = document.getElementById("photoLightboxClose");
+
+    document.querySelectorAll(".chain-box").forEach(box => {
+      box.addEventListener("click", () => {
+        photoLightboxImage.src = box.dataset.photo;
+        photoLightboxImage.alt = box.dataset.caption;
+        photoLightboxCaption.textContent = box.dataset.caption;
+        photoLightbox.classList.add("active");
+        photoLightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closePhotoLightbox() {
+      photoLightbox.classList.remove("active");
+      photoLightbox.setAttribute("aria-hidden", "true");
+      photoLightboxImage.src = "";
+      document.body.style.overflow = "auto";
+    }
+
+    photoLightboxClose.addEventListener("click", closePhotoLightbox);
+    photoLightbox.addEventListener("click", (e) => {
+      if (e.target === photoLightbox) closePhotoLightbox();
+    });
+
     const modal = document.getElementById("projectModal");
     const modalImage = document.getElementById("modalImage");
     const modalDate = document.getElementById("modalDate");
@@ -1525,6 +1976,7 @@
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeModal();
+        closePhotoLightbox();
       }
     });
 
