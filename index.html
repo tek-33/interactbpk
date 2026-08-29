@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ทำเนียบคณะกรรมการและโครงการ | Interact Club of Bangpakokwittayakom</title>
+  <meta name="description"
+    content="ทำเนียบคณะกรรมการบริหารและสรุปโครงการสโมสรอินเทอร์แรคท์ โรงเรียนบางปะกอกวิทยาคม รุ่นที่ 9 ประจำปี 2568–2569 ในอุปถัมภ์สโมสรโรตารีราษฎร์บูรณะ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Prompt:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0F1A30;
+      --ink-2: #1E2D4A;
+      --gold: #967226;
+      --gold-light: #D4AF37;
+      --gold-glow: rgba(212, 175, 55, 0.15);
+      --rose: #9E3B54;
+      --moss: #3B6E47;
+      --paper: #F4F2EC;
+      --paper-2: #EAE6DB;
+      --surface: #FFFFFF;
+      --line: #E2DDD0;
+      --line-strong: #C8C1AF;
+      --text: #1F242E;
+      --text-mute: #5C6270;
+      --text-mute-2: #807B6D;
+      --wrap: 1152px;
+      --shadow-sm: 0 4px 12px rgba(15, 26, 48, 0.04);
+      --shadow-md: 0 10px 25px rgba(15, 26, 48, 0.07);
+      --shadow-lg: 0 18px 40px rgba(15, 26, 48, 0.12);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--text);
+      font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .3;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.035 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-weight: 600;
+      margin: 0;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    ::selection {
+      background: var(--gold-light);
+      color: var(--ink);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    .nav-toggle:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* จัดการเฮดเดอร์และตราโรงเรียนด้านบนซ้ายใหม่ให้ไม่ชนกันบนมือถือ */
+    .site-top-container {
+      background: rgba(15, 26, 48, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .site-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .top-left-seal {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--gold-light);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex: none;
+    }
+
+    .top-left-seal img {
+      width: 85%;
+      height: 85%;
+      object-fit: contain;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .seal {
+      height: 40px;
+      width: auto;
+      flex: none;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text .en {
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 10px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 600;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-text .th {
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #FFFFFF;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    nav.site-nav {
+      display: flex;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    nav.site-nav a {
+      text-decoration: none;
+      color: #D5D9E2;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all .2s ease;
+      white-space: nowrap;
+    }
+
+    nav.site-nav a:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .3);
+      color: #fff;
+      width: 38px;
+      height: 38px;
+      border-radius: 6px;
+      cursor: pointer;
+      flex: none;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: #fff;
+      margin: 3.5px auto;
+    }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 12px;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-weight: 600;
+    }
+
+    .eyebrow .rn {
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--text-mute-2);
+    }
+
+    .section-head {
+      position: relative;
+      padding-bottom: 16px;
+      margin-bottom: 12px;
+    }
+
+    .section-head::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .section-head::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--line-strong);
+    }
+
+    h2.title {
+      font-size: clamp(24px, 3vw, 32px);
+      margin-top: 16px;
+      max-width: 660px;
+    }
+
+    p.desc {
+      color: var(--text-mute);
+      max-width: 600px;
+      margin-top: 14px;
+      font-size: 15px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.is-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    .hero {
+      padding: 60px 0 40px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(180deg, rgba(15, 26, 48, 0.03) 0%, rgba(244, 242, 236, 0) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+    }
+
+    .hero-num {
+      position: absolute;
+      top: -40px;
+      right: -8px;
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: min(220px, 24vw);
+      line-height: 1;
+      color: var(--ink);
+      opacity: .05;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+    }
+
+    .hero .kicker {
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 12px;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+    }
+
+    .hero .kicker::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-size: clamp(26px, 4vw, 44px);
+      line-height: 1.35;
+      max-width: 820px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .sub {
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 12px;
+      letter-spacing: .04em;
+      color: var(--text-mute);
+      margin-top: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p.lede {
+      max-width: 640px;
+      color: var(--ink-2);
+      margin-top: 18px;
+      font-size: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-strip {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-strip .cell {
+      padding: 20px;
+      border-right: 1px solid var(--line);
+      position: relative;
+      transition: background-color .3s;
+    }
+
+    .stat-strip .cell:last-child {
+      border-right: none;
+    }
+
+    .stat-strip .cell::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: transparent;
+      transition: background .3s;
+    }
+
+    .stat-strip .cell:hover::before {
+      background: var(--gold-light);
+    }
+
+    .stat-strip .num {
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .stat-strip .label {
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--text-mute);
+      margin-top: 4px;
+    }
+
+    section.block {
+      padding: 60px 0;
+      position: relative;
+    }
+
+    .about-grid {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 40px;
+    }
+
+    .about-grid .copy p {
+      color: var(--ink-2);
+      margin: 0 0 16px;
+    }
+
+    .quote-mark {
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-style: italic;
+      font-size: 48px;
+      color: var(--gold-light);
+      line-height: .6;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .info-panel {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid var(--line-strong);
+      background: var(--surface);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .info-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--ink) 0%, var(--gold-light) 100%);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .info-head {
+      position: relative;
+      z-index: 1;
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-head::before {
+      content: "★";
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    .info-list {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-item dt {
+      margin: 0;
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 11px;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      font-weight: 600;
+    }
+
+    .info-item dd {
+      margin: 0;
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .advisor-plate {
+      margin-top: 30px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
+      color: #fff;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .advisor-plate .badge {
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid var(--gold-light);
+      background: var(--gold-glow);
+      padding: 6px 12px;
+      border-radius: 4px;
+      flex: none;
+      font-weight: 600;
+    }
+
+    .advisor-plate .nm {
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .advisor-plate .role {
+      color: #C9CCD6;
+      font-size: 13.5px;
+      margin-top: 2px;
+    }
+
+    .member-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .m-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .m-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gold-light);
+    }
+
+    .m-plate {
+      position: relative;
+      aspect-ratio: 4/5;
+      background: var(--paper-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .m-plate img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .m-card:hover .m-plate img {
+      transform: scale(1.05);
+    }
+
+    .m-idx {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(15, 26, 48, 0.82);
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      color: #fff;
+      z-index: 2;
+      backdrop-filter: blur(4px);
+    }
+
+    .m-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .m-role {
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 11px;
+      letter-spacing: .04em;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .m-name {
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .m-nick {
+      font-size: 13px;
+      color: var(--text-mute);
+    }
+
+    .p-group-title {
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-size: 20px;
+      color: var(--ink-2);
+      margin-top: 40px;
+      padding-bottom: 6px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .p-group-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .p-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .p-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .p-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gold-light);
+    }
+
+    .p-card::after {
+      content: "🔍 กดเพื่อดูรายละเอียด";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(15, 26, 48, 0.85);
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .p-card:hover::after {
+      opacity: 1;
+    }
+
+    .p-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: var(--paper-2);
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .p-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .p-date {
+      font-family: 'IBM Plex Mono', 'Prompt', sans-serif;
+      font-size: 11px;
+      color: var(--gold);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 3px 10px;
+      border-radius: 20px;
+      width: fit-content;
+      margin-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .p-title {
+      font-family: 'Kanit', 'Noto Sans Thai', sans-serif;
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .p-desc {
+      font-size: 14px;
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+
+    .p-highlight {
+      margin-top: auto;
+      padding-top: 12px;
+      font-size: 13px;
+      color: var(--moss);
+      font-weight: 600;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      border-top: 1px dashed var(--line);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 26, 48, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-container {
+      background: var(--surface);
+      width: 100%;
+      max-width: 700px;
+      max-height: 90vh;
+      border-radius: 16px;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      border: 2px solid var(--gold-light);
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-container {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 16px 20px;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--gold-light);
+    }
+
+    .modal-header h3 {
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .modal-close {
+      background: var(--rose);
+      color: #fff;
+      border: none;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Kanit', sans-serif;
+    }
+
+    .modal-close:hover {
+      background: #822e44;
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .modal-img {
+      width: 100%;
+      max-height: 350px;
+      object-fit: contain;
+      background: var(--paper-2);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+
+    .modal-date {
+      font-size: 14px;
+      color: var(--gold);
+      font-weight: 600;
+      font-family: 'IBM Plex Mono', sans-serif;
+    }
+
+    .modal-title-text {
+      font-size: 20px;
+      color: var(--ink);
+      font-family: 'Kanit', sans-serif;
+      font-weight: 700;
+    }
+
+    .modal-desc-text {
+      font-size: 16px;
+      color: var(--ink-2);
+      line-height: 1.7;
+    }
+
+    .modal-highlight-text {
+      font-size: 15px;
+      color: var(--moss);
+      font-weight: 700;
+      background: rgba(59, 110, 71, 0.1);
+      padding: 10px 14px;
+      border-radius: 6px;
+      border-left: 4px solid var(--moss);
+    }
+
+    footer.site {
+      background: var(--ink);
+      color: #B0B7C6;
+      padding: 50px 0 24px;
+      position: relative;
+      border-top: 4px solid var(--gold);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    footer.site h4 {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    footer.site .brand-text .th {
+      font-size: 16px;
+      color: #FFFFFF;
+    }
+
+    footer.site p {
+      color: #A0A7B8;
+      font-size: 13px;
+      max-width: 100%;
+      margin-top: 8px;
+    }
+
+    .footer-bottom {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: 'IBM Plex Mono', 'Prompt', 'Noto Sans Thai', sans-serif;
+      font-size: 10.5px;
+      color: #788094;
+      letter-spacing: .03em;
+    }
+
+    @media (max-width:860px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .stat-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-strip .cell {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat-strip .cell:nth-child(odd) {
+        border-right: 1px solid var(--line);
+      }
+
+      .hero-num {
+        font-size: 150px;
+        top: -20px;
+      }
+
+      nav.site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--ink);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+        border-top: 1px solid rgba(212, 175, 55, 0.3);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        display: none;
+      }
+
+      nav.site-nav.open {
+        display: flex;
+      }
+
+      nav.site-nav a {
+        padding: 12px 24px;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .05);
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 0 16px;
+      }
+
+      .brand-text .th {
+        font-size: 13px;
+      }
+
+      .brand-text .en {
+        font-size: 9px;
+      }
+
+      .top-left-seal {
+        width: 36px;
+        height: 36px;
+      }
+
+      .seal {
+        height: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-top-container">
+    <div class="wrap site-bar">
+      <div class="brand-group">
+        <div class="top-left-seal" title="ตราโรงเรียนบางปะกอกวิทยาคม">
+          <img src="logoschool.jpg" alt="ตราโรงเรียนบางปะกอกวิทยาคม">
+        </div>
+        <a class="brand" href="#top">
+          <img src="logo.png" class="seal" alt="ตราสโมสรอินเทอร์แรคท์">
+          <span class="brand-text">
+            <span class="en">Interact Club of BPK</span>
+            <span class="th">ทำเนียบคณะกรรมการบริหาร</span>
+          </span>
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="เปิดเมนู" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="#committee">ทำเนียบคณะกรรมการ</a>
+        <a href="#projects">โครงการและกิจกรรม</a>
+        <a href="#about">เกี่ยวกับสโมสร</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-num" aria-hidden="true">09</div>
+        <div class="kicker">Rotary Year 2025–2026 · ปีบริหาร 2568–2569</div>
+        <h1>ทำเนียบคณะกรรมการบริหารและผลการดำเนินโครงการ<br>สโมสรอินเทอร์แรคท์โรงเรียนบางปะกอกวิทยาคม</h1>
+        <div class="sub">IN SPONSORSHIP OF ROTARY CLUB OF RAT BURANA · DISTRICT 3350, ROTARY INTERNATIONAL</div>
+        <p class="lede">ทำเนียบรายนามคณะกรรมการบริหาร รุ่นที่ 9
+          พร้อมสรุปผลการดำเนินโครงการและกิจกรรมบำเพ็ญประโยชน์ประจำปีบริหาร 2568–2569
+          จัดทำขึ้นเพื่อการอ้างอิงและเผยแพร่ต่อหน่วยงาน สถานศึกษา และผู้มีเกียรติที่เกี่ยวข้อง</p>
+
+        <div class="stat-strip">
+          <div class="cell">
+            <div class="num">รุ่นที่ 9</div>
+            <div class="label">ก่อตั้งปี 2560</div>
+          </div>
+          <div class="cell">
+            <div class="num">19 คน</div>
+            <div class="label">คณะกรรมการฯ</div>
+          </div>
+          <div class="cell">
+            <div class="num">ราษฎร์บูรณะ</div>
+            <div class="label">โรตารีอุปถัมภ์</div>
+          </div>
+          <div class="cell">
+            <div class="num">ภาค 3350</div>
+            <div class="label">โรตารีสากล</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block reveal" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span class="rn">I.</span> เกี่ยวกับสโมสร</div>
+        </div>
+        <h2 class="title">สโมสรอินเทอร์แรคท์โรงเรียนบางปะกอกวิทยาคม</h2>
+        <div class="about-grid">
+          <div class="copy">
+            <span class="quote-mark">“</span>
+            <p>สโมสรอินเทอร์แรคท์โรงเรียนบางปะกอกวิทยาคม ก่อตั้งขึ้นเมื่อวันจันทร์ที่ 6 กุมภาพันธ์ พ.ศ. 2560
+              ภายใต้การอุปถัมภ์ของสโมสรโรตารีราษฎร์บูรณะ สังกัดภาค 3350 โรตารีสากล
+              เป็นสโมสรบำเพ็ญประโยชน์สำหรับเยาวชนอายุ 12–18 ปี มีวัตถุประสงค์เพื่อพัฒนาความเป็นผู้นำ คุณธรรมจริยธรรม
+              จิตสำนึกสาธารณะ และการบำเพ็ญประโยชน์ต่อชุมชนและสังคม</p>
+            <p>ตลอดระยะเวลา 9 รุ่นที่ผ่านมา สโมสรได้ดำเนินโครงการทั้งภายในและภายนอกโรงเรียนอย่างต่อเนื่อง
+              ร่วมมือกับสโมสรอินเทอร์แรคท์จากโรงเรียนต่าง ๆ ในภาค 3350
+              เพื่อส่งเสริมการบริการชุมชนและการทำงานเป็นทีมของเยาวชน</p>
+          </div>
+          <div class="info-panel">
+            <div class="info-head">ข้อมูลจดทะเบียนสโมสร (Official Registration)</div>
+            <dl class="info-list">
+              <div class="info-item">
+                <dt>ชื่อสโมสรภาษาอังกฤษ</dt>
+                <dd>Interact Club of Bangpakokwittayakom School</dd>
+              </div>
+              <div class="info-item">
+                <dt>สโมสรอุปถัมภ์</dt>
+                <dd>สโมสรโรตารีราษฎร์บูรณะ</dd>
+              </div>
+              <div class="info-item">
+                <dt>สังกัดภาค</dt>
+                <dd>ภาค 3350 โรตารีสากล</dd>
+              </div>
+              <div class="info-item">
+                <dt>วันก่อตั้งสโมสร</dt>
+                <dd>6 กุมภาพันธ์ 2560</dd>
+              </div>
+              <div class="info-item">
+                <dt>อาจารย์ที่ปรึกษา</dt>
+                <dd>คุณครูอนันตชัย จงสมจิตต์</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block reveal" id="committee">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span class="rn">II.</span> คณะกรรมการบริหารสโมสร</div>
+        </div>
+        <h2 class="title">ทำเนียบคณะกรรมการบริหาร ประจำปี 2568–2569</h2>
+        <p class="desc">รายนาม ชื่อเล่น และช่องทางติดต่อของคณะกรรมการบริหารสโมสร รุ่นที่ 9</p>
+
+        <div class="advisor-plate">
+          <span class="badge">ที่ปรึกษาสโมสร</span>
+          <div>
+            <div class="nm">คุณครูอนันตชัย จงสมจิตต์</div>
+            <div class="role">อาจารย์ที่ปรึกษาสโมสรอินเทอร์แรคท์โรงเรียนบางปะกอกวิทยาคม</div>
+          </div>
+        </div>
+
+        <div class="member-grid" id="memberGrid"></div>
+      </div>
+    </section>
+
+    <section class="block reveal" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow"><span class="rn">III.</span> โครงการและกิจกรรม</div>
+        </div>
+        <h2 class="title">สรุปผลการดำเนินโครงการประจำปี 2568–2569</h2>
+        <p class="desc">รวบรวมโครงการหลักและกิจกรรมที่สโมสรเข้าร่วมตลอดปีบริหาร รุ่นที่ 9 มุ่งเน้นการบริการชุมชน สังคม
+          และสิ่งแวดล้อม (คลิกการ์ดโครงการใดก็ได้เพื่อดูรูปและรายละเอียดขนาดใหญ่)</p>
+
+        <h3 class="p-group-title">โครงการหลักประจำปี</h3>
+        <div class="p-grid" id="mainProjectsGrid"></div>
+
+        <h3 class="p-group-title">โครงการและกิจกรรมที่เข้าร่วม</h3>
+        <div class="p-grid" id="joinedProjectsGrid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="modalHeaderTitle">รายละเอียดโครงการ</h3>
+        <button class="modal-close" id="modalCloseBtn">ปิดหน้าต่าง ✕</button>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="" class="modal-img" id="modalImage">
+        <div class="modal-date" id="modalDate"></div>
+        <div class="modal-title-text" id="modalTitle"></div>
+        <div class="modal-desc-text" id="modalDesc"></div>
+        <div class="modal-highlight-text" id="modalHighlight" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="brand-text">
+          <div class="th">สโมสรอินเทอร์แรคท์โรงเรียนบางปะกอกวิทยาคม</div>
+          <p>51 ซ.สุขสวัสดิ์ 19 แขวงบางปะกอก เขตราษฎร์บูรณะ กรุงเทพฯ 10140 ในอุปถัมภ์สโมสรโรตารีราษฎร์บูรณะ ภาค 3350
+            โรตารีสากล</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>INTERACT CLUB OF BANGPAKOKWITTAYAKOM SCHOOL · GEN. IX</span>
+        <span>ข้อมูลปรับปรุงล่าสุด: สิงหาคม 2568</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // สมาชิกคณะกรรมการบริหาร รุ่นที่ 9 (ปี 2568-2569)
+    const allMembers = [
+      { role: "นายกสโมสร", name: "ปภินวิทย์ สงเสด", nick: "ป้อง" },
+      { role: "อุปนายกสโมสร", name: "ภัทรภร โก๊ะเจริญ", nick: "ไลลา" },
+      { role: "เลขานุการ", name: "สมิตา ปันตา", nick: "คะน้า" },
+      { role: "ผู้ช่วยเลขานุการ", name: "กาญจนา คชศิลา", nick: "หนูดี" },
+      { role: "ฝ่ายประชาสัมพันธ์", name: "อิศราภา แสงคร้าม", nick: "จูน" },
+      { role: "เหรัญญิก", name: "พลอยปภัส พิศวิลัย", nick: "เนเน่" },
+      { role: "ผู้ช่วยเหรัญญิก", name: "ภีมพล ขวัญมีชัยชนะ", nick: "ภีมเมอร์" },
+      { role: "ฝ่ายการงานหาทุน", name: "จุฑามาศ เนตร์ทอง", nick: "น้ำผึ้ง" },
+      { role: "ฝ่ายเทคโนโลยีสารสนเทศ", name: "พลอย เกตุไชยศรี", nick: "พลอย" },
+      { role: "ผู้ช่วยฝ่ายเทคโนโลยีสารสนเทศ", name: "กัญญาภัค มาโยธา", nick: "กัลย์" },
+      { role: "ฝ่ายบำเพ็ญประโยชน์", name: "ภูธเนศ แม่นหมาย", nick: "ภู" },
+      { role: "ฝ่ายบริหารจัดการสโมสร", name: "บุรินทร์ รักท้วม", nick: "ปูน" },
+      { role: "หัวหน้าสมาชิกภาพ", name: "มณฑาทิพย์ มุขพรม", nick: "แบม" },
+      { role: "สมาชิกภาพ", name: "นันท์นภัส พันธ์ผลไร่", nick: "อิงเอย" },
+      { role: "สมาชิกภาพ", name: "พัฑฒิดา เทวาวงศ์", nick: "อุ๊งอิ๊ง" },
+      { role: "สมาชิกภาพ", name: "คณาธิป ชื่นอุทัย", nick: "ไล้" },
+      { role: "สมาชิกภาพ", name: "ณัฐธิดา กิจถาวรวุฒิกุล", nick: "สายป่าน" },
+      { role: "สมาชิกภาพ", name: "ลักษมล เมียดขุนทด", nick: "ไอซ์" },
+      { role: "สมาชิกภาพ", name: "กิตติญารัตน์ ปุริโส", nick: "เกรซ" },
+    ];
+
+    const grid = document.getElementById("memberGrid");
+    allMembers.forEach((m, index) => {
+      const imgSrc = `img${index + 1}.jpg`;
+      const idx = String(index + 1).padStart(2, "0");
+
+      const card = document.createElement("div");
+      card.className = "m-card";
+      card.innerHTML = `
+      <div class="m-plate">
+        <span class="m-idx">NO. ${idx}</span>
+        <img src="${imgSrc}" alt="${m.name}" loading="lazy">
+      </div>
+      <div class="m-body">
+        <div class="m-role">${m.role}</div>
+        <div class="m-name">${m.name}</div>
+        <div class="m-nick">ชื่อเล่น ${m.nick}</div>
+      </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // ข้อมูลโครงการหลัก
+    const mainProjects = [
+      {
+        img: "โครงการ1.jpg",
+        date: "เสาร์ 19 ก.ค. 2568",
+        title: "โครงการที่ 1: หมอยาไทยใกล้ชิดชุมชน",
+        desc: "ร่วมกับสโมสรโรตารีราษฎร์บูรณะ สโมสรโรตารีในภาค 3350 และคณะแพทย์แผนไทยจากบูรณเวชอะคาเดมี่ จัดกิจกรรม ณ วัดราษฎร์บูรณะ ให้บริการตรวจสุขภาพ นวดบำบัด ตรวจสายตา และแจกแว่นตาฟรี สโมสรรับหน้าที่ดูแลคิวงานและแจกอุปกรณ์",
+        highlight: "🏆 รางวัลชนะเลิศอันดับที่ 1 Inspire Impact 3350"
+      },
+      {
+        img: "โครงการ2.JPG",
+        date: "อาทิตย์ 2 พ.ย. 2568",
+        title: "โครงการที่ 2: อาหารพระราชทาน",
+        desc: "รับมอบหมายจากสโมสรโรตารีราษฎร์บูรณะ ให้เข้าร่วมแจกอาหารภายใต้โครงการอาหารพระราชทาน ณ สนามหลวง เนื่องในโอกาสวันเฉลิมพระชนมพรรษา 4 รอบ ของสมเด็จพระนางเจ้าฯ พระบรมราชินี",
+        highlight: ""
+      },
+      {
+        img: "โครงการ3.JPG",
+        date: "เสาร์ 8 พ.ย. 2568",
+        title: "โครงการที่ 3: สุขใจวัยเกษียณ",
+        desc: "ระดมทุนและสนับสนุนศูนย์พัฒนาการจัดสวัสดิการสังคมผู้สูงอายุ บ้านบางแค โดยมอบเงินบริจาคสมทบทุน พร้อมบริจาคสิ่งของจำเป็น เช่น ผ้าอ้อมสำหรับผู้ใหญ่ เครื่องปรุงรส และข้าวสารอาหารแห้ง",
+        highlight: ""
+      },
+      {
+        img: "โครงการ4.JPG",
+        date: "เสาร์ 15 พ.ย. 2568",
+        title: "โครงการที่ 4: Reforest For Future",
+        desc: "ร่วมกับสโมสรอินเทอร์แรคท์โรงเรียนเทพศิรินทร์ร่มเกล้า จัดโครงการปลูกป่าชายเลน ณ สถานตากอากาศบางปู จ.สมุทรปราการ เพื่อเพิ่มพื้นที่สีเขียว ฟื้นฟูผืนป่าชายเลน และสร้างสมดุลให้ระบบนิเวศชายฝั่ง",
+        highlight: ""
+      },
+      {
+        img: "โครงการ5.JPG",
+        date: "อังคาร 20 ม.ค. 2569",
+        title: "โครงการที่ 5: Until I Found You",
+        desc: "ร่วมกับโรงเรียนสตรีวิทยา, กรุงเทพคริสเตียนวิทยาลัย และนวมินทราชินูทิศ บดินทรเดชา จัดทำกิจกรรมจิตอาสาผลิต ECO PRODUCT เพื่อช่วยเหลือน้องๆ ในโรงเรียนต่างจังหวัด",
+        highlight: ""
+      },
+      {
+        img: "โครงการ6.jpg",
+        date: "เสาร์ 20 ธ.ค. 2568",
+        title: "โครงการที่ 6: CAP4EARTH",
+        desc: "ร่วมกับโรงเรียนศรีพฤฒา เปิดรับบริจาคฝาขวดน้ำมอบให้กับโครงการกรีนโรด จ.ลำพูน เพื่อนำไปแปรรูปให้เกิดประโยชน์และส่งเสริมจิตอาสาด้านสิ่งแวดล้อม",
+        highlight: ""
+      },
+      {
+        img: "โครงการ7.JPG",
+        date: "อาทิตย์ 22 มี.ค. 2569",
+        title: "โครงการที่ 8: เลิกกั๊กแล้วรักเต่า",
+        desc: "ร่วมกับโรงเรียนสตรีวัดมหาพฤฒาราม ร่วมกันขัดบ่อเต่าทะเล ณ ศูนย์อนุรักษ์พันธุ์เต่าทะเล กองทัพเรือ อ.สัตหีบ จ.ชลบุรี เพื่อทำความสะอาด ลดการสะสมของเชื้อโรค และอนุรักษ์เต่าทะเล",
+        highlight: ""
+      },
+      {
+        img: "โครงการ8.jpg",
+        date: "จันทร์ 3 ส.ค. 2569",
+        title: "โครงการที่ 9: ปันมื้ออิ่มให้น้องจิ๋ว",
+        desc: "ระดมทุนช่วยเหลือและสมทบทุนมื้ออาหารให้แก่บ้านเด็กอ่อนเสือใหญ่ มูลนิธิเด็กอ่อนในสลัมฯ พร้อมมอบสิ่งของจำเป็น เช่น นมผงสำหรับเด็กแรกเกิดถึง 1 ขวบ และน้ำยาฆ่าเชื้อโรคเดทตอล",
+        highlight: ""
+      }
+    ];
+
+    // ข้อมูลโครงการและกิจกรรมที่เข้าร่วม
+    const joinedProjects = [
+      {
+        img: "โครงการ11.JPG",
+        date: "เสาร์ 21 มิ.ย. 2568",
+        title: "งานประชุมใหญ่สโมสรอินเทอร์แรคท์ (ICD)",
+        desc: "Interact District Conference (ICD) ภาค 3350 โรตารีสากล ประจำปี 2567-2568",
+        highlight: ""
+      },
+      {
+        img: "โครงการ12.JPG",
+        date: "เสาร์ 7 มี.ค. 2569",
+        title: "One day trips จ.ฉะเชิงเทรา",
+        desc: "กิจกรรมทำประโยชน์ ณ โรงพยาบาลคลองเขื่อน อำเภอคลองเขื่อน จังหวัดฉะเชิงเทรา",
+        highlight: ""
+      },
+      {
+        img: "โครงการ13.jpg",
+        date: "พุธ 5 พ.ย. 2568",
+        title: "กิจกรรมวันอินเทอร์แรคท์โลก",
+        desc: "เข้าร่วมกิจกรรมเนื่องในวันอินเทอร์แรคท์โลก (World Interact Week) ร่วมกับสโมสรอินเทอร์แรคท์ภาค 3350",
+        highlight: ""
+      },
+      {
+        img: "โครงการ14.JPG",
+        date: "เสาร์ 23 ส.ค. 2568",
+        title: "ICLLS Interact Club Leadership Learning Seminar",
+        desc: "เข้าร่วมงานสัมมนาการเรียนรู้ผู้นำสโมสรอินเทอร์แรคท์ ภาค 3350 โรตารีสากล ประจำปี 2568–2569",
+        highlight: ""
+      },
+      {
+        img: "โครงการ15.JPG",
+        date: "อังคาร 13 ส.ค. 2568",
+        title: "งาน \"Memory lane 60 ปีรอยยิ้มเดิม เติมวันวาน\"",
+        desc: "เข้าร่วมงานเฉลิมฉลองการก่อตั้งครบรอบ 60 ปี สโมสรอินเทอร์แรคท์โรงเรียนกรุงเทพคริสเตียนวิทยาลัย",
+        highlight: ""
+      },
+      {
+        img: "โครงการ16.JPG",
+        date: "อาทิตย์ 16 พ.ย. 2568",
+        title: "World day of remembrance for road traffic victims",
+        desc: "เข้าร่วมกิจกรรมรำลึกถึงผู้สูญเสียจากอุบัติเหตุทางถนน ณ องค์การสหประชาชาติ (United Nations)",
+        highlight: ""
+      }
+    ];
+
+    function renderProjects(projects, containerId) {
+      const container = document.getElementById(containerId);
+      projects.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "p-card";
+        card.innerHTML = `
+          <img src="${p.img}" alt="${p.title}" class="p-img" loading="lazy">
+          <div class="p-content">
+            <span class="p-date">${p.date}</span>
+            <div class="p-title">${p.title}</div>
+            <div class="p-desc">${p.desc}</div>
+            ${p.highlight ? `<div class="p-highlight">${p.highlight}</div>` : ''}
+          </div>
+        `;
+
+        card.addEventListener("click", () => {
+          openModal(p);
+        });
+
+        container.appendChild(card);
+      });
+    }
+
+    renderProjects(mainProjects, "mainProjectsGrid");
+    renderProjects(joinedProjects, "joinedProjectsGrid");
+
+    const modal = document.getElementById("projectModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalDate = document.getElementById("modalDate");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalHighlight = document.getElementById("modalHighlight");
+    const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+    function openModal(p) {
+      modalImage.src = p.img;
+      modalImage.alt = p.title;
+      modalDate.textContent = p.date;
+      modalTitle.textContent = p.title;
+      modalDesc.textContent = p.desc;
+
+      if (p.highlight) {
+        modalHighlight.textContent = p.highlight;
+        modalHighlight.style.display = "block";
+      } else {
+        modalHighlight.style.display = "none";
+      }
+
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+
+    modalCloseBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    const navToggle = document.getElementById("navToggle");
+    const siteNav = document.getElementById("siteNav");
+    navToggle.addEventListener("click", () => {
+      const open = siteNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    siteNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      siteNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }));
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+      }, { threshold: .12 });
+      document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-in"));
+    }
+
+  </script>
+
+</body>
+
+</html>
