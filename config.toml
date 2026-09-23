@@ -1,0 +1,2 @@
+[functions.admin-portal]
+verify_jwt = false
